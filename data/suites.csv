@@ -1,0 +1,6 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Mon Jun 30 11:37:19 GMT 2025","Mon Jun 30 11:37:25 GMT 2025","5650","","ApiTest.spec.js","","","","",""
+"passed","Mon Jun 30 11:37:19 GMT 2025","Mon Jun 30 11:37:26 GMT 2025","6778","","UIBasicstest.spec.js","","","","First playwright test",""
+"passed","Mon Jun 30 11:37:26 GMT 2025","Mon Jun 30 11:37:30 GMT 2025","4435","","WebAPIPartOne.spec.js","","","","Run first test",""
+"passed","Mon Jun 30 11:37:28 GMT 2025","Mon Jun 30 11:37:30 GMT 2025","1374","","UIBasicstest.spec.js","","","","Third playwright test",""
+"passed","Mon Jun 30 11:37:27 GMT 2025","Mon Jun 30 11:37:28 GMT 2025","1164","","UIBasicstest.spec.js","","","","Second playwright test",""
