@@ -4,8 +4,8 @@ on:
   push:
     branches: [ main ]
   schedule:
-    - cron: '0 11 * * *'  # Elke dag om 11:00 UTC = 13:00 NL tijd
-  workflow_dispatch:       # Optioneel: handmatig triggeren
+    - cron: '0 11 * * *'  # 13:00 NL tijd
+  workflow_dispatch:
 
 jobs:
   test:
@@ -26,12 +26,16 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      - name: Run Playwright tests
-        run: npx playwright test
+      - name: Run Playwright tests with Allure reporting
+        run: npx playwright test --reporter=allure-playwright
 
-      - name: Upload test report (optioneel)
+      - name: Generate Allure report
+        run: |
+          npx allure generate allure-results --clean -o allure-report
+
+      - name: Upload Allure report artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-report
-          path: playwright-report/
+          name: allure-report
+          path: allure-report/
