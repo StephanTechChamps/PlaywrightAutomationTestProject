@@ -43,6 +43,9 @@ jobs:
           name: allure-report
           path: allure-report/
 
+      - name: List allure-report directory
+        run: ls -l allure-report || echo "allure-report not found"
+
       - name: Deploy Allure report to GitHub Pages
         if: github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v3
