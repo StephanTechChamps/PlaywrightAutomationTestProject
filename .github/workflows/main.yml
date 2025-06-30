@@ -8,7 +8,7 @@ on:
   workflow_dispatch:       # Optioneel: handmatig triggeren
 
 jobs:
-  test:
+  Regression_test:
     runs-on: ubuntu-latest
 
     steps:
