@@ -4,8 +4,8 @@ on:
   push:
     branches: [ main ]
   schedule:
-    - cron: '0 11 * * *'  # Elke dag om 11:00 UTC = 13:00 NL tijd
-  workflow_dispatch:       # Optioneel: handmatig triggeren
+    - cron: '0 11 * * *'
+  workflow_dispatch:
 
 jobs:
   Regression_test:
@@ -30,9 +30,11 @@ jobs:
         run: npx playwright test --reporter=allure-playwright
 
       - name: Generate Allure report
-        uses: mikeydub/action-allure-report@v2
+        uses: simple-elf/allure-report-action@v1.7
         with:
-          results: allure-results
+          allure_results: allure-results
+          allure_report: allure-report
+          keep_reports: 1
 
       - name: Upload allure report artifact
         if: always()
