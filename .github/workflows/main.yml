@@ -27,7 +27,7 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      - name: Run Playwright smoke tests
+      - name: Run Playwright smoke test
         run: npx playwright test --grep @smoke --reporter=allure-playwright
 
       - name: Generate Allure report
@@ -112,7 +112,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright API tests
-        run: npx playwright test --grep @apitests --reporter=allure-playwright
+        run: npx playwright test --grep @apiTest --reporter=allure-playwright
 
       - name: Generate Allure report
         uses: simple-elf/allure-report-action@v1.7
