@@ -19,5 +19,5 @@ test('@smoke @regression @apiTest second test', async ({ page }) => {
     expect(await page.locator("input[id='userEmail']").isVisible()).toBeTruthy();
     await page.locator("input[id='userEmail']").fill(userName);
     await page.locator("input[id='userPassword']").fill(password);
-    await page.locator("#login").click();
+    await page.locator("#logn").click();
 });
