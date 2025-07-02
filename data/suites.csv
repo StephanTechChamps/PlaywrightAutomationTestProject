@@ -1,6 +1,3 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Wed Jul 02 09:55:04 GMT 2025","Wed Jul 02 09:55:10 GMT 2025","6444","","WebAPIPartOne.spec.js","","","","@regression Run first test",""
-"passed","Wed Jul 02 09:55:05 GMT 2025","Wed Jul 02 09:55:07 GMT 2025","1571","","UIBasicstest.spec.js","","","","@regression Second playwright test",""
-"passed","Wed Jul 02 09:55:07 GMT 2025","Wed Jul 02 09:55:09 GMT 2025","1575","","UIBasicstest.spec.js","","","","@regression Third playwright test",""
-"passed","Wed Jul 02 09:54:56 GMT 2025","Wed Jul 02 09:55:02 GMT 2025","6041","","ApiTest.spec.js","","","","@smoke @regression",""
-"passed","Wed Jul 02 09:54:56 GMT 2025","Wed Jul 02 09:55:04 GMT 2025","7780","","UIBasicstest.spec.js","","","","@smoke @regression First playwright test",""
+"passed","Wed Jul 02 09:58:24 GMT 2025","Wed Jul 02 09:58:33 GMT 2025","9778","","ApiTest.spec.js","","","","@smoke @regression",""
+"passed","Wed Jul 02 09:58:24 GMT 2025","Wed Jul 02 09:58:32 GMT 2025","8822","","UIBasicstest.spec.js","","","","@smoke @regression First playwright test",""
