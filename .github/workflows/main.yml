@@ -103,7 +103,6 @@ jobs:
           publish_branch: gh-pages
 
   API_test:
-    if: (github.ref == 'refs/heads/main' && github.event_name == 'push') || github.event_name == 'schedule'
     runs-on: ubuntu-latest
 
     steps:
