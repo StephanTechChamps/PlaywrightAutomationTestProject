@@ -2,16 +2,12 @@ name: Daily Playwright Test
 
 on:
   push:
-  pull_request:
-    branches: [ main ]
-    types: [closed]
-  schedule:
-    - cron: '0 13 * * *'
-  workflow_dispatch:
+    branches: [ '**' ]   # Triggert op elke push naar elke branch
+  workflow_dispatch:     # Handmatig starten blijft mogelijk
 
 jobs:
   Smoke_test:
-    if: github.event_name == 'push'
+    if: github.ref != 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
 
     steps:
@@ -58,7 +54,7 @@ jobs:
           publish_branch: gh-pages
 
   Regression_test:
-    if: github.event_name == 'pull_request' && github.event.pull_request.merged == true
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
 
     steps:
