@@ -47,6 +47,7 @@ jobs:
           publish_dir: allure-report
           publish_branch: gh-pages
           destination_dir: ${{ github.ref_name }}/${{ github.run_number }}/smoke
+          force: true
 
       - name: Post Allure report link
         if: always()
@@ -92,6 +93,7 @@ jobs:
           publish_dir: allure-report
           publish_branch: gh-pages
           destination_dir: ${{ github.ref_name }}/${{ github.run_number }}/regression
+          force: true
 
       - name: Post Allure report link
         if: always()
@@ -137,6 +139,7 @@ jobs:
           publish_dir: allure-report
           publish_branch: gh-pages
           destination_dir: ${{ github.ref_name }}/${{ github.run_number }}/api
+          force: true
 
       - name: Post Allure report link
         if: always()
