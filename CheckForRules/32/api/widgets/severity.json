@@ -1,0 +1,1 @@
+[{"uid":"388e05a0a594a2a4","name":"@smoke @regression @apiTest second test","time":{"start":1751461723518,"stop":1751461727759,"duration":4241},"status":"passed","severity":"normal"},{"uid":"e255ccbd02442d1b","name":"@smoke @regression @apiTest","time":{"start":1751461711568,"stop":1751461719462,"duration":7894},"status":"passed","severity":"normal"}]
