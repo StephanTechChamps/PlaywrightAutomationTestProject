@@ -4,7 +4,7 @@ const userName = "stephan@techchamps.io";
 const password = "Susanne81";
 
 
-test('@smoke @regression @api', async ({ page }) => {
+test('@smoke @regression @apiTest', async ({ page }) => {
     await page.goto("https://rahulshettyacademy.com/client/");
     expect(await page.title()).toBe("Let's Shop");
     expect(await page.locator("input[id='userEmail']").isVisible()).toBeTruthy();
@@ -13,7 +13,7 @@ test('@smoke @regression @api', async ({ page }) => {
     await page.locator("#login").click();
 });
 
-test('@smoke @regression @api second test', async ({ page }) => {
+test('@smoke @regression @apiTest second test', async ({ page }) => {
     await page.goto("https://rahulshettyacademy.com/client/");
     expect(await page.title()).toBe("Let's Shop");
     expect(await page.locator("input[id='userEmail']").isVisible()).toBeTruthy();

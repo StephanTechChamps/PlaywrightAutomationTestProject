@@ -3,9 +3,9 @@ name: Playwright CI
 on:
   push:
     branches: [ '**' ]
+  workflow_dispatch:
   schedule:
     - cron: '0 13 * * *'
-  workflow_dispatch:
 
 jobs:
   Smoke_test:
@@ -103,6 +103,7 @@ jobs:
           publish_branch: gh-pages
 
   API_test:
+    if: github.event_name == 'push' || github.event_name == 'schedule'
     runs-on: ubuntu-latest
 
     steps:
@@ -121,7 +122,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright API tests
-        run: npx playwright test --grep @apitests --reporter=allure-playwright
+        run: npx playwright test --grep @apiTest --reporter=allure-playwright
 
       - name: Generate Allure report
         uses: simple-elf/allure-report-action@v1.7
