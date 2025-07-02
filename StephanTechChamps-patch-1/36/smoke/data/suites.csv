@@ -1,0 +1,5 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Wed Jul 02 13:31:01 GMT 2025","Wed Jul 02 13:31:07 GMT 2025","6382","","ApiTest.spec.js","","","","@smoke @regression @apiTest",""
+"passed","Wed Jul 02 13:31:09 GMT 2025","Wed Jul 02 13:31:14 GMT 2025","4436","","ApiTest.spec.js","","","","@smoke @regression @apiTest second test",""
+"passed","Wed Jul 02 13:31:01 GMT 2025","Wed Jul 02 13:31:08 GMT 2025","7836","","UIBasicstest.spec.js","","","","@smoke @regression First playwright test",""
+"passed","Wed Jul 02 13:31:14 GMT 2025","Wed Jul 02 13:31:19 GMT 2025","4711","","ApiTest.spec.js","","","","@smoke @regression second test",""
