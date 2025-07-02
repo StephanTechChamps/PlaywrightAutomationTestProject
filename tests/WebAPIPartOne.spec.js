@@ -33,7 +33,7 @@ test.beforeEach(async ({ page }) => {
   }, token);
 });
 
-test("Run first test", async ({ page }) => {
+test("@regression Run first test", async ({ page }) => {
   // This test will run after the beforeAll hook and beforeEach hook
   // and will have the token set in local storage
   // so we can access the protected resources without logging in again

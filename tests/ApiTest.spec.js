@@ -4,7 +4,7 @@ const userName = "stephan@techchamps.io";
 const password = "Susanne81";
 
 
-test('', async ({ page }) => {
+test('@smoke @regression', async ({ page }) => {
     await page.goto("https://rahulshettyacademy.com/client/");
     expect(await page.title()).toBe("Let's Shop");
     expect(await page.locator("input[id='userEmail']").isVisible()).toBeTruthy();
