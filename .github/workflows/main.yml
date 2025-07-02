@@ -1,9 +1,11 @@
-name: Daily Playwright Test
+name: Playwright CI
 
 on:
   push:
-    branches: [ '**' ]   # Triggert op elke push naar elke branch
-  workflow_dispatch:     # Handmatig starten blijft mogelijk
+    branches: [ '**' ]
+  schedule:
+    - cron: '0 13 * * *'
+  workflow_dispatch:
 
 jobs:
   Smoke_test:
@@ -54,7 +56,7 @@ jobs:
           publish_branch: gh-pages
 
   Regression_test:
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: (github.ref == 'refs/heads/main' && github.event_name == 'push') || github.event_name == 'schedule'
     runs-on: ubuntu-latest
 
     steps:
@@ -74,6 +76,53 @@ jobs:
 
       - name: Run Playwright regression tests
         run: npx playwright test --grep @regression --reporter=allure-playwright
+
+      - name: Generate Allure report
+        uses: simple-elf/allure-report-action@v1.7
+        with:
+          allure_results: allure-results
+          allure_report: allure-report
+          keep_reports: 1
+
+      - name: Upload allure report artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: allure-report/
+
+      - name: List allure-report directory
+        run: ls -l allure-report || echo "allure-report not found"
+
+      - name: Deploy Allure report to GitHub Pages
+        if: github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: allure-report
+          publish_branch: gh-pages
+
+  API_test:
+    if: (github.ref == 'refs/heads/main' && github.event_name == 'push') || github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Run Playwright API tests
+        run: npx playwright test --grep @apitests --reporter=allure-playwright
 
       - name: Generate Allure report
         uses: simple-elf/allure-report-action@v1.7
