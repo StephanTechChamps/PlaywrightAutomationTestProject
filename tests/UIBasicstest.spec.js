@@ -16,7 +16,11 @@ test("@regression Second playwright test", async ({ page }) => {
   await page.goto("https://google.com");
   await expect(page).toHaveTitle("Google");
 });
-
 test("@regression Third playwright test", async ({ page }) => {
+  await page.goto("https://google.com");
+  await expect(page).toHaveTitle("Google");
+});
+
+test("@regression Fourth playwright test", async ({ page }) => {
   await page.goto("https://rahulshettyacademy.com/LoginpagePractise/");
 });
