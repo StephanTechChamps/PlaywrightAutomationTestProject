@@ -18,7 +18,7 @@ const config = {
   // Automatically clear mock calls, instances, contexts and results before every test
 
   preset: 'ts-jest',
-  testEnvironment: 'jsdom',
+  // testEnvironment: 'jsdom',
 
 
   // Indicates whether the coverage information should be collected while executing the test
