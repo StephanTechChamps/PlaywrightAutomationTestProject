@@ -7,6 +7,7 @@ on:
   schedule:
     - cron: '0 13 * * *'
 
+
 jobs:
   build_application:
     runs-on: ubuntu-latest
@@ -31,6 +32,7 @@ jobs:
           npm run build
         
   smoke_test:
+    needs: build_application
     if: github.ref != 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
 
@@ -69,7 +71,7 @@ jobs:
           publish_dir: allure-report
           publish_branch: gh-pages
           destination_dir: ${{ github.ref_name }}/${{ github.run_number }}/smoke
-          force: true
+  
 
       - name: Post Allure report link
         if: always()
@@ -77,6 +79,7 @@ jobs:
           echo "### :rocket: [View Allure Smoke Report](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/${{ github.ref_name }}/${{ github.run_number }}/smoke/)" >> $GITHUB_STEP_SUMMARY
 
   regression_test:
+    needs: build_application
     if: (github.ref == 'refs/heads/main' && github.event_name == 'push') || github.event_name == 'schedule'
     runs-on: ubuntu-latest
 
@@ -114,8 +117,9 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: allure-report
           publish_branch: gh-pages
+    
           destination_dir: ${{ github.ref_name }}/${{ github.run_number }}/regression
-          force: true
+      
 
       - name: Post Allure report link
         if: always()
@@ -123,6 +127,7 @@ jobs:
           echo "### :rocket: [View Allure Regression Report](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/${{ github.ref_name }}/${{ github.run_number }}/regression/)" >> $GITHUB_STEP_SUMMARY
 
   api_test:
+    needs: build_application
     if: github.event_name == 'push' || github.event_name == 'schedule'
     runs-on: ubuntu-latest
 
@@ -161,7 +166,7 @@ jobs:
           publish_dir: allure-report
           publish_branch: gh-pages
           destination_dir: ${{ github.ref_name }}/${{ github.run_number }}/api
-          force: true
+  
 
       - name: Post Allure report link
         if: always()
