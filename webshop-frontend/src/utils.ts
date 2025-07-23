@@ -1,4 +1,4 @@
-import { Currency, Product } from './types';
+import type { Currency, Product } from './types';
 
 export const EUR_TO_USD = 1.1;
 

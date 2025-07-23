@@ -1,5 +1,5 @@
 import React from 'react';
-import { Product, CartItem, Currency } from '../types';
+import type { Product, CartItem, Currency } from '../types';
 import ProductItem from './ProductItem';
 
 interface ProductListProps {

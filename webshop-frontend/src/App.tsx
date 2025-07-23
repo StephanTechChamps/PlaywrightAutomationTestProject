@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Routes, Route, Link, useNavigate } from 'react-router-dom';
 import './App.css';
 import turtlesMug from './image/turtles mug.jpg';
 import thundercatsTshirt from './image/thundercat t shirt.webp';
 import superManSticker from './image/superman sticker.webp';
 import KnightMug from './image/knight rider mug.webp';
-import type { Product, CartItem, Currency } from './types';
+import type { CartItem, Currency, Product } from './types';
 import { formatPrice, getUnitPrice } from './utils';
 import CurrencySwitch from './components/CurrencySwitch';
 import ProductList from './components/ProductList';

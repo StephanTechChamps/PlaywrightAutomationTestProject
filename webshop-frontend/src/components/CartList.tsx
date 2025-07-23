@@ -1,5 +1,5 @@
 import React from 'react';
-import { CartItem as CartItemType, Currency } from '../types';
+import type { CartItem as CartItemType, Currency } from '../types';
 import CartItem from './CartItem';
 
 interface CartListProps {

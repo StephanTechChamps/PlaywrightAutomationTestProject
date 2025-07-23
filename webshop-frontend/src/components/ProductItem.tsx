@@ -1,5 +1,5 @@
 import React from 'react';
-import { Product, CartItem } from '../types';
+import type { Product, CartItem } from '../types';
 import { formatPrice, getUnitPrice } from '../utils';
 
 interface ProductItemProps {
@@ -30,7 +30,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product, cartItem, currency, 
       <span style={{ display: 'inline-block', width: 52, marginLeft: 8 }}>
         {cartItem && cartItem.quantity > 0 && (
           <button
-            style={{ width: 52, background: '#fff', color: '#d00', border: '1px solid #d00', borderRadius: 6, cursor: 'pointer', height: 32, fontSize: 13 }}
+            style={{ width:80, background: '#fff', color: '#d00', border: '1px solid #d00', borderRadius: 3, cursor: 'pointer', height: 38, fontSize: 13 }}
             onClick={() => removeFromCart(product.id)}
           >
             Remove
@@ -38,7 +38,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product, cartItem, currency, 
         )}
       </span>
     </div>
-    <div style={{ height: 20, marginTop: 4, display: 'flex', alignItems: 'center', justifyContent: 'center', width: 110 }}>
+    <div style={{ height: 20, marginTop: 6, display: 'flex', alignItems: 'center', justifyContent: 'center', width: 110 }}>
       {cartItem && cartItem.quantity > 0 && (
         <span style={{ fontSize: 11, color: '#bbb', minWidth: 18, textAlign: 'center' }}>
           {cartItem.quantity === 1 ? '1 item added' : `${cartItem.quantity} items added`}

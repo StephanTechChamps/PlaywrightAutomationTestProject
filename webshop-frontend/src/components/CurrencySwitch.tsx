@@ -1,5 +1,5 @@
 import React from 'react';
-import { Currency } from '../types';
+import type { Currency } from '../types';
 
 interface CurrencySwitchProps {
   currency: Currency;
