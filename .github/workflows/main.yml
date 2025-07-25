@@ -58,12 +58,7 @@ jobs:
         run: |
           cd webshop-frontend
           nohup npm run dev > dev.log 2>&1 &
-      
-      - name: Wait until frontend application is ready
-        run: |
-          echo "Waiting for frontend to be ready..."
-              until curl -s http://localhost:5713 > /dev/null; do sleep 1; done
-
+  
       - name: Run Playwright smoke test
         run: npx playwright test --grep @smoke --reporter=allure-playwright
 
