@@ -12,6 +12,7 @@ const CartList: React.FC<CartListProps> = ({ cart, currency, removeFromCart }) =
   <ul>
     {cart.map(item => (
       <CartItem
+      data-tesid={`cart-item-${item.id}`}
         key={item.id}
         item={item}
         currency={currency}

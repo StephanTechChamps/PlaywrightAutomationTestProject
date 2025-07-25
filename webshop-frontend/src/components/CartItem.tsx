@@ -9,7 +9,7 @@ interface CartItemProps {
 }
 
 const CartItem: React.FC<CartItemProps> = ({ item, currency, removeFromCart }) => (
-  <li style={{ display: 'flex', alignItems: 'center', marginBottom: 24, gap: 16, padding: '12px 0', borderBottom: '1px solid #eee', minHeight: 70 }}>
+  <li style={{ display: 'flex', alignItems: 'center', marginBottom: 24, gap: 16, padding: '12px 0', borderBottom: '1px solid #eee', minHeight: 70 }} data-testid="cartItemRow">
     {item.image && (
       <img
         src={item.image}
@@ -18,10 +18,10 @@ const CartItem: React.FC<CartItemProps> = ({ item, currency, removeFromCart }) =
       />
     )}
     <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
-      <span style={{ fontWeight: 500, fontSize: 16, flex: 1 }}>{item.name} <span style={{ color: '#888', fontSize: 15 }}>(x {item.quantity})</span></span>
-      <span style={{ color: '#888', fontSize: 15, minWidth: 60, textAlign: 'right' }}>{formatPrice(getUnitPrice(item, currency) * item.quantity, currency)}</span>
+      <span data-testid="itemName" style={{ fontWeight: 500, fontSize: 16, flex: 1 }}>{item.name} <span style={{ color: '#888', fontSize: 15 }}>(x {item.quantity})</span></span>
+      <span data-testid="itemPrice" style={{ color: '#888', fontSize: 15, minWidth: 60, textAlign: 'right' }}>{formatPrice(getUnitPrice(item, currency) * item.quantity, currency)}</span>
     </div>
-    <button style={{ minWidth: 90, marginLeft: 8 }} onClick={() => removeFromCart(item.id)}>
+    <button data-testid="removeFromCartButton" style={{ minWidth: 90, marginLeft: 8 }} onClick={() => removeFromCart(item.id)}>
       Remove
     </button>
   </li>

@@ -14,6 +14,7 @@ const ProductList: React.FC<ProductListProps> = ({ products, cart, currency, add
   <ul>
     {products.map(product => (
       <ProductItem
+      data-testid={`product-item-${product.id}`}
         key={product.id}
         product={product}
         cartItem={cart.find(item => item.id === product.id)}

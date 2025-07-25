@@ -62,7 +62,7 @@ function App() {
           addToCart={addToCart}
           removeFromCart={removeFromCart}
         />
-        <Link to="/cart" style={{ display: 'inline-block', marginTop: 16 }}>
+        <Link data-testid="goToCart" to="/cart" style={{ display: 'inline-block', marginTop: 16 }}>
           Go to Cart ({cart.reduce((sum, item) => sum + item.quantity, 0)})
         </Link>
       </div>
@@ -74,25 +74,25 @@ function App() {
     const total = cart.reduce((sum, item) => sum + getUnitPrice(item, currency) * item.quantity, 0);
     return (
       <div>
-        <h2>Your Cart</h2>
+        <h2 data-testid="yourCartText">Your Cart</h2>
         {cart.length === 0 ? (
           <p>Your cart is empty.</p>
         ) : (
           <>
             <CartList cart={cart} currency={currency} removeFromCart={removeFromCart} />
-            <div style={{ textAlign: 'right', fontWeight: 600, fontSize: 18, marginTop: 16 }}>
+            <div data-testid={"totalPrice"} style={{ textAlign: 'right', fontWeight: 600, fontSize: 18, marginTop: 16 }}>
               Total: {formatPrice(total, currency)}
             </div>
           </>
         )}
-        <button onClick={() => navigate('/')}>Back to Products</button>
+        <button onClick={() => navigate('/')} data-testid="backToProductsButton">Back to Products</button>
       </div>
     );
   }
 
   return (
     <div className="App">
-      <h1>Stephan's Webshop</h1>
+      <h1 data-testid='titleOfApp'>Stephan's Webshop</h1>
       <Routes>
         <Route path="/" element={<ProductsPage />} />
         <Route path="/cart" element={<CartPage />} />

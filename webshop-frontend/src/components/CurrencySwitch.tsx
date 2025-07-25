@@ -12,12 +12,13 @@ const CurrencySwitch: React.FC<CurrencySwitchProps> = ({ currency, setCurrency }
   return (
     <div style={{ marginTop: 32, marginBottom: 24, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <button
+        data-testid="currency-switch-button"
         onClick={() => setCurrency(currency === 'EUR' ? 'USD' : 'EUR')}
         style={{ padding: '4px 12px', borderRadius: 6, border: 'none', background: '#fafafa', cursor: 'pointer', width: 160, textAlign: 'center', fontVariantNumeric: 'tabular-nums' }}
       >
         {buttonText}
       </button>
-      <span style={{ color: '#888', fontSize: 14, marginLeft: 16, fontVariantNumeric: 'tabular-nums' }}>{labelText}</span>
+      <span style={{ color: '#888', fontSize: 14, marginLeft: 16, fontVariantNumeric: 'tabular-nums' }} data-testid="displayedCurrency">{labelText}</span>
     </div>
   );
 };
