@@ -1,0 +1,3 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Thu Aug 28 10:41:11 GMT 2025","Thu Aug 28 10:41:15 GMT 2025","4280","","ApiTest.spec.js","","","","@smoke @regression @apiTest second test",""
+"passed","Thu Aug 28 10:41:03 GMT 2025","Thu Aug 28 10:41:10 GMT 2025","7377","","ApiTest.spec.js","","","","@smoke @regression @apiTest",""
